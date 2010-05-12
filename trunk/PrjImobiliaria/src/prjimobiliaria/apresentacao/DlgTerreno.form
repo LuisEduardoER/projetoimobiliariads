@@ -34,11 +34,23 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="583" max="32767" attributes="0"/>
+                      <EmptySpace pref="599" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" pref="651" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      <Component id="btnGravar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnAlterar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="btnExcluir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnSair" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -55,7 +67,15 @@
               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGravar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSair" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,7 +113,7 @@
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ftxCep" alignment="0" pref="86" max="32767" attributes="1"/>
+                              <Component id="ftxCep" alignment="0" pref="90" max="32767" attributes="1"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -114,7 +134,9 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="btnConsultar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -132,6 +154,7 @@
                       <Component id="txfEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txfNoEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txfBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -241,6 +264,11 @@
             </Property>
           </Properties>
         </Component>
+        <Component class="javax.swing.JButton" name="btnConsultar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="..."/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -258,52 +286,31 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ckbSombra" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ckbTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ckbQuintal" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ckbQuitado" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ckbAreaServico" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="ckbCozinha" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ckbMobiliado" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="ckbSombra" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="ckbQuitado" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="cbxDisponibilidade" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <Component id="txfComprimento" min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txfQtQuarto" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="txfLargura" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txfQtSuite" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="txfNoArea" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txfWcsSociais" alignment="0" max="32767" attributes="1"/>
-                              <Component id="jLabel14" alignment="0" max="32767" attributes="1"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="txfQtVgGaragem" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txfNoArea" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace pref="293" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -312,17 +319,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txfQtSuite" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txfQtQuarto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txfWcsSociais" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txfLargura" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txfNoArea" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -330,37 +335,20 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="ckbSombra" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ckbQuitado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ckbMobiliado" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txfQtVgGaragem" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txfNoArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="ckbAreaServico" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="ckbCozinha" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="ckbTelefone" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="ckbQuintal" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="cbxDisponibilidade" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txfComprimento" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
@@ -392,31 +380,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Quartos:"/>
+            <Property name="text" type="java.lang.String" value="Largura:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Su&#xed;tes:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txfQtQuarto">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txfQtSuite">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Banheiros:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txfWcsSociais">
+        <Component class="javax.swing.JTextField" name="txfLargura">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Garagens:"/>
+            <Property name="text" type="java.lang.String" value="Comprimento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txfQtVgGaragem">
+        <Component class="javax.swing.JTextField" name="txfComprimento">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -424,14 +398,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txfNoArea">
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="ckbAreaServico">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&#xc1;rea de Servi&#xe7;o"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ckbAreaServicoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="ckbSombra">
           <Properties>
@@ -441,26 +407,6 @@
         <Component class="javax.swing.JCheckBox" name="ckbQuitado">
           <Properties>
             <Property name="text" type="java.lang.String" value="Quitado"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="ckbMobiliado">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Mobiliado"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="ckbTelefone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Telefone"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="ckbCozinha">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cozinha"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="ckbQuintal">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Quintal"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -485,5 +431,30 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnLimpar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGravar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gravar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAlterar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnExcluir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exluir"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSair">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
