@@ -125,7 +125,7 @@ public class DlgUsuario extends javax.swing.JDialog {
 
         jLabel5.setText("Perfil:");
 
-        cbxPerfil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Auxiliar", "Corretor"}));
+        cbxPerfil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Auxiliar", "Corretor" }));
 
         jLabel6.setText("Senha:");
 
@@ -138,7 +138,6 @@ public class DlgUsuario extends javax.swing.JDialog {
 
         btnNovo.setText("Novo");
         btnNovo.setToolTipText("Colocar todos os campos nos seus estados iniciais");
-        btnNovo.setName("null"); // NOI18N
 
         btnGravar.setText("Gravar");
 
