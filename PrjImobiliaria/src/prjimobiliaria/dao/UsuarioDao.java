@@ -5,8 +5,6 @@
 
 package prjimobiliaria.dao;
 
-import java.sql.Statement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import prjimobiliaria.negocio.*;
@@ -27,20 +25,14 @@ public class UsuarioDao {
         int result = 0;
 
         try {
-        ConexaoDao conDao = new ConexaoDao();
-        Connection con = conDao.abrirConexao();
 
-        Statement st = con.createStatement();
+            String sql = "INSERT INTO tbusuario VALUES ('"+usr.getDsLogin()+"','"+ usr.getDsLogin()+"',"+usr.getIdPessoa()+")";
 
-        String sql = "insert into tbusuario values ('"+usr.getDsLogin()+"','"+ usr.getDsLogin()+"',"+usr.getIdPessoa()+")";
-        
-        result = st.executeUpdate(sql);
+            ConexaoDao con = new ConexaoDao();
+            result = con.executarCud(sql);
 
-        st.close();
-        conDao.fecharConexao();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+             ex.printStackTrace();
         }
 
         return result;
@@ -48,7 +40,7 @@ public class UsuarioDao {
 
     /**
      *
-     * Método que atualiza um usuário específicado pelo id
+     * Método que atualiza um usuário, específicado pelo id
      * @return int
      */
     public int atualizarUsuario(Usuario usr) {
@@ -56,20 +48,18 @@ public class UsuarioDao {
         int result = 0;
 
         try {
-        ConexaoDao conDao = new ConexaoDao();
-        Connection con = conDao.abrirConexao();
+            
+            String sql = "UPDATE tbusuario SET " +
+                               "dsLogin = '"+ usr.getDsLogin()+"','"+
+                               "dsSenha = '"+ usr.getDsSenha()+"' "+
+                         "WHERE " +
+                               "idPessoa = "+usr.getIdPessoa();
+            
+            ConexaoDao con = new ConexaoDao();
+            result = con.executarCud(sql);
 
-        Statement st = con.createStatement();
-
-        String sql = "update usuario set dsLogin = '"+usr.getDsLogin()+"','"+ usr.getDsLogin()+"' where idPessoa = "+usr.getIdPessoa();
-
-        result = st.executeUpdate(sql);
-
-        st.close();
-        conDao.fecharConexao();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+             ex.printStackTrace();
         }
 
         return result;
@@ -77,7 +67,7 @@ public class UsuarioDao {
 
     /**
      *
-     * Método que exclui um usuário específicado pelo id
+     * Método que exclui um usuário, especificado pelo id
      * @return int
      */
     public int excluirUsuario(Usuario usr) {
@@ -85,25 +75,18 @@ public class UsuarioDao {
         int result = 0;
 
         try {
-        ConexaoDao conDao = new ConexaoDao();
-        Connection con = conDao.abrirConexao();
 
-        Statement st = con.createStatement();
+            String sql = "DELET FROM tbusuario WHERE idPessoa = "+usr.getIdPessoa();
 
-        String sql = "delete from usuario where idPessoa = "+usr.getIdPessoa();
+            ConexaoDao con = new ConexaoDao();
+            result = con.executarCud(sql);
 
-        result = st.executeUpdate(sql);
-
-        st.close();
-        conDao.fecharConexao();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+             ex.printStackTrace();
         }
 
         return result;
     }
-
 
     /**
      *
@@ -112,23 +95,24 @@ public class UsuarioDao {
      */
     public ResultSet obterUsuario() throws SQLException {
 
-        ResultSet rs = null;
+        ResultSet result = null;
 
         try {
-        ConexaoDao conDao = new ConexaoDao();
-        Connection con = conDao.abrirConexao();
 
-        Statement st = con.createStatement();
+            String sql = "SELECT * " +
+                         "FROM " +
+                              "tbusuario u " +
+                         "INNE JOIN tbpessoa p ON " +
+                              "u.idPessoa = p.idPessoa";
+                         
+            ConexaoDao con = new ConexaoDao();
+            result = con.executarRead(sql);
 
-        rs = st.executeQuery("select * from usuario");
-        
-        st.close();
-        conDao.fecharConexao();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+             ex.printStackTrace();
         }
 
-        return rs;
+        return result;
     }
+    
 }
