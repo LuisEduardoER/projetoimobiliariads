@@ -257,7 +257,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Novo"/>
         <Property name="toolTipText" type="java.lang.String" value="Colocar todos os campos nos seus estados iniciais"/>
-        <Property name="name" type="java.lang.String" value="null" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnGravar">
