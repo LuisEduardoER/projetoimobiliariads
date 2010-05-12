@@ -5,8 +5,10 @@
 
 package prjimobiliaria.dao;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,6 +18,11 @@ import java.sql.SQLException;
 public class ConexaoDao {
 
     private Connection conexao;
+
+    public ConexaoDao() {
+
+        this.conexao = abrirConexao();
+    }
 
     public Connection abrirConexao() {
 
@@ -47,6 +54,48 @@ public class ConexaoDao {
 
             System.out.println("[ERRO_FECHAR_CONEXAO] " + ex.getMessage());
         }
+    }
+
+    //Método de Persistência para Insert, Update e Delete
+    public int executarCud(String sql) {
+
+        int result = 0;
+
+        try {
+
+            Statement st = conexao.createStatement();
+            result = st.executeUpdate(sql);
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        } finally {
+
+            fecharConexao();
+        }
+
+        return result;
+    }
+
+    //Método de Persistência para Select
+    public ResultSet executarRead(String sql) {
+
+        ResultSet result = null;
+        
+        try {
+
+            Statement st = conexao.createStatement();
+            result = st.executeQuery(sql);
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        } finally {
+
+            fecharConexao();
+        }
+
+        return result;
     }
     
 }
