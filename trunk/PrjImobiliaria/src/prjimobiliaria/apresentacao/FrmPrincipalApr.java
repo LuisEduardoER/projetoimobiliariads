@@ -11,6 +11,8 @@
 
 package prjimobiliaria.apresentacao;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Elissandro
@@ -21,6 +23,7 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
     /** Creates new form FrmPrincipalApr */
     public FrmPrincipalApr() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /** This method is called from within the constructor to
@@ -41,6 +44,9 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Imobiliária");
+        setExtendedState(6);
+        setFocusCycleRoot(false);
         setResizable(false);
 
         jMenu1.setText("Cadastros");
@@ -99,7 +105,7 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        // TODO add your handling code here:
+        
         System.exit(0);
     }//GEN-LAST:event_jMenu4MouseClicked
 
