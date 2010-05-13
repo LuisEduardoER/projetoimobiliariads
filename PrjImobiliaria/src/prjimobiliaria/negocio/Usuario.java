@@ -9,7 +9,7 @@ package prjimobiliaria.negocio;
  *
  * @author Elissandro
  */
-public class Usuario {
+public class Usuario extends Pessoa {
 
     private String dsLogin;
     private String dsSenha;

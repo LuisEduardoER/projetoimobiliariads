@@ -11,6 +11,9 @@
 
 package prjimobiliaria.apresentacao;
 
+import prjimobiliaria.negocio.Usuario;
+import prjimobiliaria.negocio.UsuarioNeg;
+
 /**
  *
  * @author Elissandro
@@ -38,7 +41,7 @@ public class DlgUsuario extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         btnProcurar = new javax.swing.JButton();
         btnCadastrarPessoa = new javax.swing.JButton();
-        txfCpf = new javax.swing.JFormattedTextField();
+        ftxCpf = new javax.swing.JFormattedTextField();
         txfLogin = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -84,7 +87,7 @@ public class DlgUsuario extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ftxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +112,7 @@ public class DlgUsuario extends javax.swing.JDialog {
                     .addComponent(txfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProcurar)
                     .addComponent(btnCadastrarPessoa)
-                    .addComponent(txfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ftxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -144,6 +147,11 @@ public class DlgUsuario extends javax.swing.JDialog {
         btnAlterar.setText("Alterar");
 
         btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
 
@@ -239,6 +247,18 @@ public class DlgUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfLoginActionPerformed
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        
+        UsuarioNeg usrneg = new UsuarioNeg();
+        Usuario usr = usrneg.obterUsuario(ftxCpf.getText());
+
+        ftxCpf.setText(usr.getCdCPF().toString());
+        txfNome.setText(usr.getNmPessoa().toString());
+        txfLogin.setText(usr.getNmPessoa().toString());
+        txaObservacao.setText(usr.getDsObservacao());
+        
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrarPessoa;
@@ -249,6 +269,7 @@ public class DlgUsuario extends javax.swing.JDialog {
     private javax.swing.JButton btnProcurar;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox cbxPerfil;
+    private javax.swing.JFormattedTextField ftxCpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -261,7 +282,6 @@ public class DlgUsuario extends javax.swing.JDialog {
     private javax.swing.JPasswordField pwfConfirmarSenha;
     private javax.swing.JPasswordField pwfSenha;
     private javax.swing.JTextArea txaObservacao;
-    private javax.swing.JFormattedTextField txfCpf;
     private javax.swing.JTextField txfLogin;
     private javax.swing.JTextField txfNome;
     // End of variables declaration//GEN-END:variables

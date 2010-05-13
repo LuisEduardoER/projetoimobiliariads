@@ -11,6 +11,11 @@ package prjimobiliaria.negocio;
  */
 public class UsuarioNeg {
 
-    
+    public Usuario obterUsuario(String cpf) {
+
+//        UsuarioDao usr
+
+        return null;
+    }
 
 }
