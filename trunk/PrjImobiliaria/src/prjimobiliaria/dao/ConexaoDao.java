@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package prjimobiliaria.dao;
 
 import java.sql.Statement;
@@ -16,86 +11,114 @@ import java.sql.SQLException;
  * @author Elissandro
  */
 public class ConexaoDao {
-
-    private Connection conexao;
-
+    
+    private Connection _conexao;
+    
+    
+    // Construtor
     public ConexaoDao() {
 
-        this.conexao = abrirConexao();
+        try {
+
+            _conexao = abrirConexao();
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+        }
     }
 
-    public Connection abrirConexao() {
+    /**
+     * @param conexao the _conexao to set
+     */
+    public void setConexao(Connection conexao) {
+        this._conexao = conexao;
+    }
+
+    /**
+     * @return the _conexao
+     */
+    public Connection getConexao() {
+        return _conexao;
+    }
+
+
+    //Método que realiza e retorna conexão com o banco
+    public Connection abrirConexao() throws Exception {
 
         try {
 
             Class.forName ("org.postgresql.Driver");
             String url = "jdbc:postgresql://localhost:5432/dbimobiliaria";
-            this.conexao = DriverManager.getConnection(url,"sysdba","masterkey");
+            setConexao(DriverManager.getConnection(url, "sysdba", "masterkey"));
         }
         catch(ClassNotFoundException ex) {
 
-            System.out.println("[ERRO_DRIVER] Driver JDBC-ODBC não encontrado!");
+            throw new Exception("[ERRO_DRIVER] Driver JDBC-ODBC não encontrado!" + ex.getMessage());
         }
         catch(SQLException ex){
 
-            System.out.println("[ERRO_ABRIR_CONEXAO] " + ex.getMessage());
+            throw new Exception("[ERRO_ABRIR_CONEXAO] " + ex.getMessage());
         }
 
-        return this.conexao;
+        return getConexao();
     }
 
-    public void fecharConexao() {
+    //Método que fecha conexão com o banco
+    public void fecharConexao() throws Exception {
 
         try {
 
-            this.conexao.close();
+            getConexao().close();
 
         } catch (SQLException ex) {
 
-            System.out.println("[ERRO_FECHAR_CONEXAO] " + ex.getMessage());
+            throw new Exception("[ERRO_FECHAR_CONEXAO] " + ex.getMessage());
         }
     }
-
-    //Método de Persistência para Insert, Update e Delete
-    public int executarCud(String sql) {
-
+    
+    //Método de Persistência para Create(Insert), Update e Delete
+    public int executarCud(String sql) throws Exception {
+        
         int result = 0;
-
-        try {
-
-            Statement st = conexao.createStatement();
-            result = st.executeUpdate(sql);
-
-        } catch (SQLException e) {
-
-            e.printStackTrace();
-        } finally {
-
-            fecharConexao();
-        }
-
-        return result;
-    }
-
-    //Método de Persistência para Select
-    public ResultSet executarRead(String sql) {
-
-        ResultSet result = null;
         
         try {
-
-            Statement st = conexao.createStatement();
-            result = st.executeQuery(sql);
-
-        } catch (SQLException e) {
-
-            e.printStackTrace();
+            
+            Statement st = getConexao().createStatement();
+            result = st.executeUpdate(sql);
+        
+        } catch (SQLException ex) {
+        
+            ex.printStackTrace();
+            
         } finally {
-
+        
             fecharConexao();
         }
 
         return result;
     }
     
+    //Método de Persistência para Read(Select)
+    public ResultSet executarRead(String sql) throws Exception {
+
+        ResultSet result = null;
+        
+        try {
+
+            Statement st = getConexao().createStatement();
+            result = st.executeQuery(sql);
+            
+        } catch (SQLException ex) {
+            
+            ex.printStackTrace();
+            
+        } finally {
+            
+            fecharConexao();
+        }
+
+        return result;
+    }
+
 }
