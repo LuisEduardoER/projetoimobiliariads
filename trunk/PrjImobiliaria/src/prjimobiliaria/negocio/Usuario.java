@@ -9,13 +9,13 @@ package prjimobiliaria.negocio;
  *
  * @author Elissandro
  */
-public class Usuario extends Pessoa {
+public class Usuario {
 
     private String dsLogin;
     private String dsSenha;
     private int idPessoa;
 
-    Usuario () {}
+    public Usuario () {}
 
     public Usuario (String dsLogin, String dsSenha, int idPessoa) {
 

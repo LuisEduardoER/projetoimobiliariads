@@ -11,8 +11,11 @@
 
 package prjimobiliaria.apresentacao;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import prjimobiliaria.negocio.Usuario;
 import prjimobiliaria.negocio.UsuarioNeg;
+import prjimobiliaria.dao.UsuarioDao;
 
 /**
  *
@@ -143,6 +146,11 @@ public class DlgUsuario extends javax.swing.JDialog {
         btnNovo.setToolTipText("Colocar todos os campos nos seus estados iniciais");
 
         btnGravar.setText("Gravar");
+        btnGravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGravarActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setText("Alterar");
 
@@ -252,12 +260,25 @@ public class DlgUsuario extends javax.swing.JDialog {
         UsuarioNeg usrneg = new UsuarioNeg();
         Usuario usr = usrneg.obterUsuario(ftxCpf.getText());
 
+        /*
         ftxCpf.setText(usr.getCdCPF().toString());
         txfNome.setText(usr.getNmPessoa().toString());
         txfLogin.setText(usr.getNmPessoa().toString());
         txaObservacao.setText(usr.getDsObservacao());
-        
+        */
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGravarActionPerformed
+        try {
+
+            Usuario usr = new Usuario(txfLogin.getText(), txfLogin.getText(), 1);
+            UsuarioDao usrDao = new UsuarioDao();
+            usrDao.inserirUsuario(usr);
+
+        } catch (Exception ex) {
+            Logger.getLogger(DlgUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGravarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
