@@ -11,17 +11,42 @@ package prjimobiliaria.negocio;
  */
 public class Usuario {
 
+    private int idUsuario;
+    private char tpPerfil;
     private String dsLogin;
     private String dsSenha;
-    private int idPessoa;
+    private Pessoa pessoa;
 
     public Usuario () {}
 
-    public Usuario (String dsLogin, String dsSenha, int idPessoa) {
+    public Usuario (String dsLogin, String dsSenha, Pessoa pessoa) {
 
         this.dsLogin = dsLogin;
         this.dsSenha = dsSenha;
-        this.idPessoa = idPessoa;
+        this.pessoa = pessoa;
+    }
+
+
+
+    /**
+     * @return the idUsuario
+     */
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    /**
+     * @return the tpPerfil
+     */
+    public char getTpPerfil() {
+        return tpPerfil;
+    }
+
+    /**
+     * @param tpPerfil the tpPerfil to set
+     */
+    public void setTpPerfil(char tpPerfil) {
+        this.tpPerfil = tpPerfil;
     }
 
     /**
@@ -53,17 +78,17 @@ public class Usuario {
     }
 
     /**
-     * @return the idPessoa
+     * @return the pessoa
      */
-    public int getIdPessoa() {
-        return idPessoa;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
     /**
-     * @param idPessoa the idPessoa to set
+     * @param pessoa the pessoa to set
      */
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
-    
+
 }
