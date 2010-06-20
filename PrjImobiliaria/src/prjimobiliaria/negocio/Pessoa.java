@@ -5,6 +5,8 @@
 
 package prjimobiliaria.negocio;
 
+import java.sql.Date;
+
 /**
  *
  * @author Elissandro
@@ -16,19 +18,19 @@ public class Pessoa {
     private String cdRG;
     private String nmPessoa;
     private char tpSexo;
-    private String dtNascimento;
+    private Date dtNascimento;
     private String dsNaturalidade;
     private String dsNacionalidade;
     private char tpEstadoCivil;
-    private String dsEmail;
     private String nmProfissao;
     private String dsEndereco;
     private String noEndereco;
     private String dsComplemento;
     private String nmBairro;
+    private String cdCEP;
     private String nmCidade;
     private String sgEstado;
-    private String cdCEP;
+    private String dsEmail;
     private String dsObservacao;
 
     /**
@@ -104,14 +106,14 @@ public class Pessoa {
     /**
      * @return the dtNascimento
      */
-    public String getDtNascimento() {
+    public Date getDtNascimento() {
         return dtNascimento;
     }
 
     /**
      * @param dtNascimento the dtNascimento to set
      */
-    public void setDtNascimento(String dtNascimento) {
+    public void setDtNascimento(Date dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 
@@ -155,20 +157,6 @@ public class Pessoa {
      */
     public void setTpEstadoCivil(char tpEstadoCivil) {
         this.tpEstadoCivil = tpEstadoCivil;
-    }
-
-    /**
-     * @return the dsEmail
-     */
-    public String getDsEmail() {
-        return dsEmail;
-    }
-
-    /**
-     * @param dsEmail the dsEmail to set
-     */
-    public void setDsEmail(String dsEmail) {
-        this.dsEmail = dsEmail;
     }
 
     /**
@@ -242,6 +230,20 @@ public class Pessoa {
     }
 
     /**
+     * @return the cdCEP
+     */
+    public String getCdCEP() {
+        return cdCEP;
+    }
+
+    /**
+     * @param cdCEP the cdCEP to set
+     */
+    public void setCdCEP(String cdCEP) {
+        this.cdCEP = cdCEP;
+    }
+
+    /**
      * @return the nmCidade
      */
     public String getNmCidade() {
@@ -270,17 +272,17 @@ public class Pessoa {
     }
 
     /**
-     * @return the cdCEP
+     * @return the dsEmail
      */
-    public String getCdCEP() {
-        return cdCEP;
+    public String getDsEmail() {
+        return dsEmail;
     }
 
     /**
-     * @param cdCEP the cdCEP to set
+     * @param dsEmail the dsEmail to set
      */
-    public void setCdCEP(String cdCEP) {
-        this.cdCEP = cdCEP;
+    public void setDsEmail(String dsEmail) {
+        this.dsEmail = dsEmail;
     }
 
     /**
