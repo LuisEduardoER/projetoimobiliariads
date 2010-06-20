@@ -1,9 +1,7 @@
 package prjimobiliaria.dao;
 
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -25,14 +23,14 @@ public class ConexaoDao {
         try {
 
             Class.forName ("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/dbimobiliaria";
+            String url = "jdbc:postgresql://localhost:5432/db_imobiliaria";
             _conexao = DriverManager.getConnection(url, "sysdba", "masterkey");
         }
         catch(ClassNotFoundException ex) {
 
-            throw new Exception("[ERRO_DRIVER] Driver JDBC-ODBC não encontrado!" + ex.getMessage());
+            throw new Exception("[ERRO_DRIVER] Driver JDBC-ODBC não encontrado! " + ex.getMessage());
         }
-        catch(SQLException ex){
+        catch(SQLException ex) {
 
             throw new Exception("[ERRO_ABRIR_CONEXAO] " + ex.getMessage());
         }
