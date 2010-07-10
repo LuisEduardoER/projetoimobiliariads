@@ -379,6 +379,107 @@ public class UsuarioDao {
         return usuario;
     }
 
+    /**
+     * Método que retorna todos os usuários cadastrados
+     *
+     * @return usuario
+     */
+    public Usuario obterUsuarioPorCpf(String cdCpf) throws SQLException, Exception {
+
+        ConexaoDao conDao = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Usuario usuario = null;
+
+        try {
+
+             String sql = "SELECT "                         +
+                                "u.id_usuario       ,"      +
+                                "u.tp_perfil        ,"      +
+                                "u.ds_login         ,"      +
+                                "u.ds_senha         ,"      +
+                                "p.cd_cpf           ,"      +
+                                "p.cd_rg            ,"      +
+                                "p.nm_pessoa        ,"      +
+                                "p.tp_sexo          ,"      +
+                                "p.dt_nascimento    ,"      +
+                                "p.ds_naturalidade  ,"      +
+                                "p.ds_nacionalidade ,"      +
+                                "p.tp_estado_civil  ,"      +
+                                "p.nm_profissao     ,"      +
+                                "p.ds_endereco      ,"      +
+                                "p.no_endereco      ,"      +
+                                "p.ds_complemento   ,"      +
+                                "p.nm_bairro        ,"      +
+                                "p.cd_cep           ,"      +
+                                "p.nm_cidade        ,"      +
+                                "p.sg_estado        ,"      +
+                                "p.ds_email         ,"      +
+                                "p.ds_observacao    ,"      +
+                                "p.ds_senha          "      +
+                          "FROM "                           +
+                              "tb_usuario u "               +
+                          "INNE JOIN tb_pessoa p ON "       +
+                              "u.id_usuario = p.id_pessoa " +
+                          "WHERE "                          +
+                              "p.cd_cpf = ?"            ;
+
+            conDao = new ConexaoDao();
+            con = conDao.abrirConexao();
+
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, cdCpf);
+
+            rs = ps.executeQuery();
+
+            // Gerando lista de objetos Usuario
+            while(rs.next()) {
+
+                usuario = new Usuario();
+                
+                usuario.setIdPessoa(rs.getInt("id_usuario"));
+                
+                usuario.setTpPerfil(rs.getString("tp_perfil").charAt(0));
+                usuario.setDsLogin(rs.getString("ds_login"));
+                usuario.setDsSenha(rs.getString("ds_senha"));
+                
+                usuario.setCdCPF(rs.getString("cd_cpf"));
+                usuario.setCdRG(rs.getString("cd_rg"));
+                usuario.setNmPessoa(rs.getString("nm_pessoa"));
+                usuario.setTpSexo(rs.getString("tp_sexo").charAt(0));
+                usuario.setDtNascimento(rs.getDate("dt_nascimento"));
+                usuario.setDsNaturalidade(rs.getString("ds_naturalidade"));
+                usuario.setDsNacionalidade(rs.getString("ds_nacionalidade"));
+                usuario.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
+                usuario.setNmProfissao(rs.getString("nm_profissao"));
+                usuario.setDsEndereco(rs.getString("ds_endereco"));
+                usuario.setNoEndereco(rs.getString("no_endereco"));
+                usuario.setDsComplemento(rs.getString("ds_complemento"));
+                usuario.setNmBairro(rs.getString("nm_bairro"));
+                usuario.setCdCEP(rs.getString("cd_cep"));
+                usuario.setNmCidade(rs.getString("nm_cidade"));
+                usuario.setSgEstado(rs.getString("sg_estado"));
+                usuario.setDsEmail(rs.getString("ds_email"));
+                usuario.setDsObservacao(rs.getString("ds_observacao"));
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception ex) {
+
+             ex.printStackTrace();
+
+        } finally {
+
+            conDao.fecharConexao();
+        }
+
+        return usuario;
+    }
+
 
     /**
      * Método que retorna todos os usuários cadastrados
