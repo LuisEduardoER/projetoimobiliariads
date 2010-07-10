@@ -5,35 +5,28 @@
 
 package prjimobiliaria.negocio;
 
+import java.sql.Date;
+
 /**
  *
  * @author Elissandro
  */
-public class Usuario {
+public class Usuario extends Pessoa {
 
-    private int idUsuario;
     private char tpPerfil;
     private String dsLogin;
     private String dsSenha;
-    private Pessoa pessoa;
 
     public Usuario () {}
+    
 
-    public Usuario (String dsLogin, String dsSenha, Pessoa pessoa) {
-
+    public Usuario(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, String dsNacionalidade, char tpEstadoCivil, String nmProfissao, String dsEndereco, String noEndereco, String dsComplemento, String nmBairro, String cdCEP, String nmCidade, String sgEstado, String dsEmail, String dsObservacao, char tpPerfil, String dsLogin, String dsSenha) {
+        super(idPessoa, cdCPF, cdRG, nmPessoa, tpSexo, dtNascimento, dsNaturalidade, dsNacionalidade, tpEstadoCivil, nmProfissao, dsEndereco, noEndereco, dsComplemento, nmBairro, cdCEP, nmCidade, sgEstado, dsEmail, dsObservacao);
+        this.tpPerfil = tpPerfil;
         this.dsLogin = dsLogin;
         this.dsSenha = dsSenha;
-        this.pessoa = pessoa;
     }
 
-
-
-    /**
-     * @return the idUsuario
-     */
-    public int getIdUsuario() {
-        return idUsuario;
-    }
 
     /**
      * @return the tpPerfil
@@ -75,20 +68,6 @@ public class Usuario {
      */
     public void setDsSenha(String dsSenha) {
         this.dsSenha = dsSenha;
-    }
-
-    /**
-     * @return the pessoa
-     */
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    /**
-     * @param pessoa the pessoa to set
-     */
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 
 }
