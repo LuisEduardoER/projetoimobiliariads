@@ -20,8 +20,14 @@ public class Usuario extends Pessoa {
     public Usuario () {}
     
 
-    public Usuario(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, String dsNacionalidade, char tpEstadoCivil, String nmProfissao, String dsEndereco, String noEndereco, String dsComplemento, String nmBairro, String cdCEP, String nmCidade, String sgEstado, String dsEmail, String dsObservacao, char tpPerfil, String dsLogin, String dsSenha) {
-        super(idPessoa, cdCPF, cdRG, nmPessoa, tpSexo, dtNascimento, dsNaturalidade, dsNacionalidade, tpEstadoCivil, nmProfissao, dsEndereco, noEndereco, dsComplemento, nmBairro, cdCEP, nmCidade, sgEstado, dsEmail, dsObservacao);
+    public Usuario(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, 
+                   String dsNacionalidade, char tpEstadoCivil, String nmProfissao, String dsEndereco, String noEndereco, String dsComplemento,
+                   String nmBairro, String cdCEP, String nmCidade, String sgEstado, String dsEmail, String dsObservacao, char tpPerfil,
+                   String dsLogin, String dsSenha) {
+        
+        super(idPessoa, cdCPF, cdRG, nmPessoa, tpSexo, dtNascimento, dsNaturalidade, dsNacionalidade, tpEstadoCivil,
+              nmProfissao, dsEndereco, noEndereco, dsComplemento, nmBairro, cdCEP, nmCidade, sgEstado, dsEmail, dsObservacao);
+        
         this.tpPerfil = tpPerfil;
         this.dsLogin = dsLogin;
         this.dsSenha = dsSenha;
