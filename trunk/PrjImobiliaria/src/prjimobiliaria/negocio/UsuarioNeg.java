@@ -41,6 +41,11 @@ public class UsuarioNeg {
        return usuarioDao.obterUsuarioPorId(idUsuario);
    }
 
+   public Usuario obterUsuarioPorCpf(String cdCpf) throws Exception {
+
+       return usuarioDao.obterUsuarioPorCpf(cdCpf);
+   }
+
    public ArrayList<Usuario> obterUsuarioPorPerfil(char tpPerfil) throws Exception {
 
        return usuarioDao.obterUsuarioPorPerfil(tpPerfil);
