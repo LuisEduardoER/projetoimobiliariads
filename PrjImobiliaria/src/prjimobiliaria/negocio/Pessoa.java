@@ -33,6 +33,35 @@ public class Pessoa {
     private String dsEmail;
     private String dsObservacao;
 
+
+    public Pessoa() {}
+
+    public Pessoa(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, 
+                  String dsNacionalidade, char tpEstadoCivil, String nmProfissao, String dsEndereco, String noEndereco, String dsComplemento,
+                  String nmBairro, String cdCEP, String nmCidade, String sgEstado, String dsEmail, String dsObservacao) {
+        
+        this.idPessoa = idPessoa;
+        this.cdCPF = cdCPF;
+        this.cdRG = cdRG;
+        this.nmPessoa = nmPessoa;
+        this.tpSexo = tpSexo;
+        this.dtNascimento = dtNascimento;
+        this.dsNaturalidade = dsNaturalidade;
+        this.dsNacionalidade = dsNacionalidade;
+        this.tpEstadoCivil = tpEstadoCivil;
+        this.nmProfissao = nmProfissao;
+        this.dsEndereco = dsEndereco;
+        this.noEndereco = noEndereco;
+        this.dsComplemento = dsComplemento;
+        this.nmBairro = nmBairro;
+        this.cdCEP = cdCEP;
+        this.nmCidade = nmCidade;
+        this.sgEstado = sgEstado;
+        this.dsEmail = dsEmail;
+        this.dsObservacao = dsObservacao;
+    }
+
+
     /**
      * @return the idPessoa
      */
