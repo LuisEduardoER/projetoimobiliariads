@@ -5,17 +5,45 @@
 
 package prjimobiliaria.negocio;
 
+import java.util.ArrayList;
+import prjimobiliaria.dao.UsuarioDao;
+
 /**
  *
  * @author Elissandro
  */
 public class UsuarioNeg {
 
-    public Usuario obterUsuario(String cpf) {
+   private UsuarioDao usuarioDao = new UsuarioDao();
 
-//        UsuarioDao usr
+   public boolean inserirUsuario(Usuario usuario) throws Exception {
 
-        return null;
-    }
+       return usuarioDao.inserirUsuario(usuario);
+   }
+
+   public boolean alterarUsuario(Usuario usuario) throws Exception {
+
+       return usuarioDao.alterarUsuario(usuario);
+   }
+
+   public boolean excluirUsuario(int idUsuario) throws Exception {
+
+       return usuarioDao.excluirUsuario(idUsuario);
+   }
+
+   public ArrayList<Usuario> obterTodosUsuario() throws Exception {
+
+       return usuarioDao.obterTodosUsuario();
+   }
+
+   public Usuario obterUsuarioPorId(int idUsuario) throws Exception {
+
+       return usuarioDao.obterUsuarioPorId(idUsuario);
+   }
+
+   public ArrayList<Usuario> obterUsuarioPorPerfil(char tpPerfil) throws Exception {
+
+       return usuarioDao.obterUsuarioPorPerfil(tpPerfil);
+   }
 
 }
