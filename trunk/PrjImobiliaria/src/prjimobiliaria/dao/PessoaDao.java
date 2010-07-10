@@ -20,12 +20,12 @@ public class PessoaDao {
      * 
      * @return int
      */
-    public int inserirPessoa(Pessoa pessoa) throws Exception {
+    public boolean inserirPessoa(Pessoa pessoa) throws Exception {
 
         ConexaoDao conDao = null;
         Connection con = null;
         PreparedStatement ps = null;
-        int result = 0;
+        boolean result = false;
         
         try {
 
@@ -34,19 +34,16 @@ public class PessoaDao {
             conDao = new ConexaoDao();
             con = conDao.abrirConexao();
 
-            // Início da Transação
-            con.setAutoCommit(false);
-            
             ps = con.prepareStatement(sql);
             
             ps.setString(1, pessoa.getCdCPF());
             ps.setString(2, pessoa.getCdRG());
             ps.setString(3, pessoa.getNmPessoa());
-            ps.setString(4, String.valueOf(pessoa.getTpSexo()));
+            ps.setInt(4, pessoa.getTpSexo());
             ps.setDate(5, pessoa.getDtNascimento());
             ps.setString(6, pessoa.getDsNaturalidade());
             ps.setString(7, pessoa.getDsNacionalidade());
-            ps.setString(8, String.valueOf(pessoa.getTpEstadoCivil()));
+            ps.setInt(8, pessoa.getTpEstadoCivil());
             ps.setString(9, pessoa.getNmProfissao() );
             ps.setString(10, pessoa.getDsEndereco());
             ps.setString(11, pessoa.getNoEndereco());
@@ -58,16 +55,18 @@ public class PessoaDao {
             ps.setString(17, pessoa.getDsEmail());
             ps.setString(18, pessoa.getDsObservacao());
 
-            result = ps.executeUpdate();
+            int inseriu = ps.executeUpdate();
+
+            if(inseriu == 1) result = true;
             
             ps.close();
 
-            // Comitar Transação
+            //Comitar Transação
             con.commit();
 
         } catch (SQLException ex) {
 
-             //
+             //Comitar Transação
              con.rollback();
 
         } catch (Exception ex) {
@@ -87,12 +86,12 @@ public class PessoaDao {
      * Método que atualiza uma pessoa, específicada pelo id
      * @return int
      */
-    public int atualizarPessoa(Pessoa pessoa) throws Exception {
+    public boolean alterarPessoa(Pessoa pessoa) throws Exception {
 
         ConexaoDao conDao = null;
         Connection con = null;
         PreparedStatement ps = null;
-        int result = 0;
+        boolean result = false;
 
         try {
 
@@ -113,18 +112,37 @@ public class PessoaDao {
                                 "nm_cidade = ?, "        +
                                 "sg_estado = ?, "        +
                                 "ds_email = ?, "         +
-                                "ds_observacao = ? "    +
-                                "WHERE id_pessoa = ?";
+                                "ds_observacao = ? "     +
+                          "WHERE "                       +
+                                "id_pessoa = ?;"         ;
 
             conDao = new ConexaoDao();
             con = conDao.abrirConexao();
 
-            // Início da Transação
-            con.setAutoCommit(false);
-
             ps = con.prepareStatement(sql);
 
-            result = ps.executeUpdate();
+            ps.setString(1, pessoa.getCdCPF());
+            ps.setString(2, pessoa.getCdRG());
+            ps.setString(3, pessoa.getNmPessoa());
+            ps.setInt(4, pessoa.getTpSexo());
+            ps.setDate(5, pessoa.getDtNascimento());
+            ps.setString(6, pessoa.getDsNaturalidade());
+            ps.setString(7, pessoa.getDsNacionalidade());
+            ps.setInt(8, pessoa.getTpEstadoCivil());
+            ps.setString(9, pessoa.getNmProfissao() );
+            ps.setString(10, pessoa.getDsEndereco());
+            ps.setString(11, pessoa.getNoEndereco());
+            ps.setString(12, pessoa.getDsComplemento());
+            ps.setString(13, pessoa.getNmBairro());
+            ps.setString(14, pessoa.getCdCEP() );
+            ps.setString(15, pessoa.getNmCidade());
+            ps.setString(16, pessoa.getSgEstado());
+            ps.setString(17, pessoa.getDsEmail());
+            ps.setString(18, pessoa.getDsObservacao());
+
+            int atualizou = ps.executeUpdate();
+
+            if(atualizou == 1) result = true;
 
             ps.close();
 
@@ -151,31 +169,29 @@ public class PessoaDao {
     /**
      *
      * Método que exclui uma Pessoa, especificada pelo id
-     * @return int
+     * @return boolean
      */
-    public int excluirPessoa(int idPessoa) throws Exception {
+    public boolean excluirPessoa(int idPessoa) throws Exception {
 
         ConexaoDao conDao = null;
         Connection con = null;
         PreparedStatement ps = null;
-        int result = 0;
-
+        boolean result = false;
 
         try {
 
-            String sql = "DELETE FROM tb_pessoa WHERE id_pessoa = ?";
+            String sql = "DELETE FROM tb_pessoa WHERE id_pessoa = ?;";
 
             conDao = new ConexaoDao();
             con = conDao.abrirConexao();
 
-            // Início da Transação
-            con.setAutoCommit(false);
-            
             ps = con.prepareStatement(sql);
 
             ps.setInt(1, idPessoa);
 
-            result = ps.executeUpdate();
+            int excluiu = ps.executeUpdate();
+
+            if(excluiu == 1) result = true;
 
             ps.close();
 
@@ -200,11 +216,103 @@ public class PessoaDao {
     }
 
     /**
+     * 
+     * @return
+     * @throws SQLException
+     * @throws Exception
+     */
+    public ArrayList<Pessoa> obterTodosPessoa() throws SQLException, Exception {
+
+        ConexaoDao conDao = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Pessoa pessoa = null;
+        ArrayList<Pessoa> lstPessoa = null;
+
+        try {
+
+             String sql = "SELECT "                         +
+                                "p.id_pessoa        ,"      +
+                                "p.cd_cpf           ,"      +
+                                "p.cd_rg            ,"      +
+                                "p.nm_pessoa        ,"      +
+                                "p.tp_sexo          ,"      +
+                                "p.dt_nascimento    ,"      +
+                                "p.ds_naturalidade  ,"      +
+                                "p.ds_nacionalidade ,"      +
+                                "p.tp_estado_civil  ,"      +
+                                "p.nm_profissao     ,"      +
+                                "p.ds_endereco      ,"      +
+                                "p.no_endereco      ,"      +
+                                "p.ds_complemento   ,"      +
+                                "p.nm_bairro        ,"      +
+                                "p.cd_cep           ,"      +
+                                "p.nm_cidade        ,"      +
+                                "p.sg_estado        ,"      +
+                                "p.ds_email         ,"      +
+                                "p.ds_observacao     "      +
+                          "FROM "                           +
+                              "tb_pessoa p"                 ;
+
+            conDao = new ConexaoDao();
+            con = conDao.abrirConexao();
+
+            ps = con.prepareStatement(sql);
+
+            rs = ps.executeQuery();
+
+            // Gerando lista de objetos Pessoa
+            lstPessoa = new ArrayList<Pessoa>();
+            while(rs.next()) {
+
+                pessoa = new Pessoa();
+
+                pessoa.setIdPessoa(rs.getInt("id_pessoa"));
+                pessoa.setCdCPF(rs.getString("cd_cpf"));
+                pessoa.setCdRG(rs.getString("cd_rg"));
+                pessoa.setNmPessoa(rs.getString("nm_pessoa"));
+                pessoa.setTpSexo(rs.getString("tp_sexo").charAt(0));
+                pessoa.setDtNascimento(rs.getDate("dt_nascimento"));
+                pessoa.setDsNaturalidade(rs.getString("ds_naturalidade"));
+                pessoa.setDsNacionalidade(rs.getString("ds_nacionalidade"));
+                pessoa.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
+                pessoa.setNmProfissao(rs.getString("nm_profissao"));
+                pessoa.setDsEndereco(rs.getString("ds_endereco"));
+                pessoa.setNoEndereco(rs.getString("no_endereco"));
+                pessoa.setDsComplemento(rs.getString("ds_complemento"));
+                pessoa.setNmBairro(rs.getString("nm_bairro"));
+                pessoa.setCdCEP(rs.getString("cd_cep"));
+                pessoa.setNmCidade(rs.getString("nm_cidade"));
+                pessoa.setSgEstado(rs.getString("sg_estado"));
+                pessoa.setDsEmail(rs.getString("ds_email"));
+                pessoa.setDsObservacao(rs.getString("ds_observacao"));
+
+                lstPessoa.add(pessoa);
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception ex) {
+
+             ex.printStackTrace();
+
+        } finally {
+
+            conDao.fecharConexao();
+        }
+
+        return lstPessoa;
+    }
+
+
+    /**
      * Método que retorna uma Pessoa, especificado pelo id.
      * 
      * @return ResultSet
      */
-    public Pessoa obterPessoa(int idPessoa) throws SQLException, Exception {
+    public Pessoa obterPessoaPorId(int idPessoa) throws SQLException, Exception {
 
         ConexaoDao conDao = null;
         Connection con = null;
@@ -230,28 +338,29 @@ public class PessoaDao {
 
                 pessoa = new Pessoa();
 
-                pessoa.setCdCPF(rs.getString("id_pessoa"));
+                pessoa.setIdPessoa(rs.getInt("id_pessoa"));
                 pessoa.setCdCPF(rs.getString("cd_cpf"));
-                pessoa.setCdCPF(rs.getString("cd_rg"));
-                pessoa.setCdCPF(rs.getString("nm_pessoa"));
-                pessoa.setCdCPF(rs.getString("tp_sexo"));
-                pessoa.setCdCPF(rs.getString("dt_nascimento"));
-                pessoa.setCdCPF(rs.getString("ds_naturalidade"));
-                pessoa.setCdCPF(rs.getString("ds_nacionalidade"));
-                pessoa.setCdCPF(rs.getString("tp_estado_civil"));
-                pessoa.setCdCPF(rs.getString("nm_profissao"));
-                pessoa.setCdCPF(rs.getString("ds_endereco"));
-                pessoa.setCdCPF(rs.getString("no_endereco"));
-                pessoa.setCdCPF(rs.getString("ds_complemento"));
-                pessoa.setCdCPF(rs.getString("nm_bairro"));
-                pessoa.setCdCPF(rs.getString("cd_cep"));
-                pessoa.setCdCPF(rs.getString("nm_cidade"));
-                pessoa.setCdCPF(rs.getString("sg_estado"));
-                pessoa.setCdCPF(rs.getString("ds_email"));
-                pessoa.setCdCPF(rs.getString("ds_observacao"));
-                
+                pessoa.setCdRG(rs.getString("cd_rg"));
+                pessoa.setNmPessoa(rs.getString("nm_pessoa"));
+                pessoa.setTpSexo(rs.getString("tp_sexo").charAt(0));
+                pessoa.setDtNascimento(rs.getDate("dt_nascimento"));
+                pessoa.setDsNaturalidade(rs.getString("ds_naturalidade"));
+                pessoa.setDsNacionalidade(rs.getString("ds_nacionalidade"));
+                pessoa.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
+                pessoa.setNmProfissao(rs.getString("nm_profissao"));
+                pessoa.setDsEndereco(rs.getString("ds_endereco"));
+                pessoa.setNoEndereco(rs.getString("no_endereco"));
+                pessoa.setDsComplemento(rs.getString("ds_complemento"));
+                pessoa.setNmBairro(rs.getString("nm_bairro"));
+                pessoa.setCdCEP(rs.getString("cd_cep"));
+                pessoa.setNmCidade(rs.getString("nm_cidade"));
+                pessoa.setSgEstado(rs.getString("sg_estado"));
+                pessoa.setDsEmail(rs.getString("ds_email"));
+                pessoa.setDsObservacao(rs.getString("ds_observacao"));
             }
 
+            rs.close();
+            ps.close();
 
         } catch (Exception ex) {
 
