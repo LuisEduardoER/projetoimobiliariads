@@ -310,7 +310,6 @@ public class DlgUsuario extends javax.swing.JDialog {
 
             UsuarioNeg usrNeg = new UsuarioNeg();
 
-            // 
             Usuario usr = new Usuario();
             usr.setIdPessoa(pessoa.getIdPessoa());
             usr.setTpPerfil((char)cbxPerfil.getSelectedIndex());
