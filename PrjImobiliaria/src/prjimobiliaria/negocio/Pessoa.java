@@ -18,7 +18,7 @@ public class Pessoa {
     private String cdRG;
     private String nmPessoa;
     private char tpSexo;
-    private Date dtNascimento;
+    private String dtNascimento;
     private String dsNaturalidade;
     private String dsNacionalidade;
     private char tpEstadoCivil;
@@ -35,7 +35,7 @@ public class Pessoa {
 
     public Pessoa() {}
 
-    public Pessoa(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, 
+    public Pessoa(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, String dtNascimento, String dsNaturalidade,
                   String dsNacionalidade, char tpEstadoCivil, String nmProfissao, String dsEndereco, String noEndereco, String dsComplemento,
                   String nmBairro, String cdCEP, String nmCidade, String sgEstado, String dsEmail, String dsObservacao) {
         
@@ -134,14 +134,14 @@ public class Pessoa {
     /**
      * @return the dtNascimento
      */
-    public Date getDtNascimento() {
+    public String getDtNascimento() {
         return dtNascimento;
     }
 
     /**
      * @param dtNascimento the dtNascimento to set
      */
-    public void setDtNascimento(Date dtNascimento) {
+    public void setDtNascimento(String dtNascimento) {
         this.dtNascimento = dtNascimento;
     }
 
