@@ -313,6 +313,11 @@ public class DlgCasa extends javax.swing.JDialog {
         btnExcluir.setText("Exluir");
 
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         btnLimpar.setText("Limpar");
 
@@ -375,6 +380,10 @@ public class DlgCasa extends javax.swing.JDialog {
     private void ckbAreaServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbAreaServicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ckbAreaServicoActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
