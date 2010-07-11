@@ -13,9 +13,12 @@ package prjimobiliaria.apresentacao;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import prjimobiliaria.negocio.Pessoa;
+import prjimobiliaria.negocio.PessoaNeg;
 import prjimobiliaria.negocio.Usuario;
 import prjimobiliaria.negocio.UsuarioNeg;
+import prjimobiliaria.negocio.UtilNeg;
 
 /**
  *
@@ -42,11 +45,9 @@ public class DlgUsuario extends javax.swing.JDialog {
         txfNome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnProcurar = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
         btnCadastrarPessoa = new javax.swing.JButton();
         ftxCpf = new javax.swing.JFormattedTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txaObservacao = new javax.swing.JTextArea();
         btnNovo = new javax.swing.JButton();
         btnGravar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -62,7 +63,6 @@ public class DlgUsuario extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         cbxPerfil = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Usuário");
@@ -75,10 +75,10 @@ public class DlgUsuario extends javax.swing.JDialog {
 
         jLabel2.setText("Nome:");
 
-        btnProcurar.setText("...");
-        btnProcurar.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setText("...");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProcurarActionPerformed(evt);
+                btnPesquisarActionPerformed(evt);
             }
         });
 
@@ -100,7 +100,7 @@ public class DlgUsuario extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCadastrarPessoa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -116,14 +116,9 @@ public class DlgUsuario extends javax.swing.JDialog {
                     .addComponent(txfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ftxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrarPessoa)
-                    .addComponent(btnProcurar))
+                    .addComponent(btnPesquisar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        txaObservacao.setColumns(20);
-        txaObservacao.setLineWrap(true);
-        txaObservacao.setRows(5);
-        jScrollPane3.setViewportView(txaObservacao);
 
         btnNovo.setText("Novo");
         btnNovo.setToolTipText("Colocar todos os campos nos seus estados iniciais");
@@ -141,6 +136,11 @@ public class DlgUsuario extends javax.swing.JDialog {
         });
 
         btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +150,11 @@ public class DlgUsuario extends javax.swing.JDialog {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnSair.setText("Sair");
         btnSair.setToolTipText("Sair desta tela");
@@ -220,8 +225,6 @@ public class DlgUsuario extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jLabel3.setText("Observação:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,6 +232,9 @@ public class DlgUsuario extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -240,12 +246,7 @@ public class DlgUsuario extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnExcluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSair))
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnSair)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -258,11 +259,7 @@ public class DlgUsuario extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addGap(3, 3, 3)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNovo)
                     .addComponent(btnGravar)
@@ -276,9 +273,9 @@ public class DlgUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarActionPerformed
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnProcurarActionPerformed
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void txfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfLoginActionPerformed
         // TODO add your handling code here:
@@ -306,32 +303,85 @@ public class DlgUsuario extends javax.swing.JDialog {
 
         try {
 
-            //PessoaNeg pessoaNeg = new PessoaNeg();
-
+            PessoaNeg pessoaNeg = new PessoaNeg();
+            
             Pessoa pessoa = new Pessoa();
-           // pessoa = pessoaNeg.obterPessoaPorCpf(ftxCpf.getText());
-                    
-            Usuario usr = new Usuario();
-            usr.setIdPessoa(pessoa.getIdPessoa());
-            //usr.setTpPerfil(cbxPerfil.getSelectedIndex());
-            usr.setDsLogin(txfLogin.getText());
-            usr.setDsSenha(pwfSenha.getText());
+            pessoa = pessoaNeg.obterPessoaPorCpf(ftxCpf.getText());
 
             UsuarioNeg usrNeg = new UsuarioNeg();
+
+            // 
+            Usuario usr = new Usuario();
+            usr.setIdPessoa(pessoa.getIdPessoa());
+            usr.setTpPerfil((char)cbxPerfil.getSelectedIndex());
+            usr.setDsLogin(txfLogin.getText());
+            
+            if(usrNeg.ehSenhaValida(pwfSenha.getText()))
+                usr.setDsSenha(pwfSenha.getText());
+
             usrNeg.inserirUsuario(usr);
 
+            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!","Cadastro Usuário",JOptionPane.PLAIN_MESSAGE);
+
         } catch (Exception ex) {
-            Logger.getLogger(DlgUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE); //JOptionPane.WARNING_MESSAGE
+            System.exit(0);
         }
     }//GEN-LAST:event_btnGravarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
 
+        ftxCpf.setText("");
+        txfNome.setText("");
+        txfLogin.setText("");
+        cbxPerfil.setSelectedIndex(0);
+        pwfSenha.setText("");
+        pwfConfirmarSenha.setText("");
     }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+
+        try {
+            
+            PessoaNeg pessoaNeg = new PessoaNeg();
+
+            Pessoa pessoa = new Pessoa();
+            pessoa = pessoaNeg.obterPessoaPorCpf(ftxCpf.getText());
+
+            UsuarioNeg usrNeg = new UsuarioNeg();
+
+            //
+            Usuario usr = new Usuario();
+            usr.setIdPessoa(pessoa.getIdPessoa());
+            usr.setTpPerfil((char)cbxPerfil.getSelectedIndex());
+            usr.setDsLogin(txfLogin.getText());
+            if(usrNeg.ehSenhaValida(pwfSenha.getText()))
+                usr.setDsSenha(pwfSenha.getText());
+
+            usrNeg.alterarUsuario(usr);
+
+            JOptionPane.showMessageDialog(null,"Alteração realizada com sucesso!","Alteração Cadastro Usuário",JOptionPane.PLAIN_MESSAGE);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE); //JOptionPane.WARNING_MESSAGE
+            System.exit(0);
+        }
+
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+
+        int opcao = JOptionPane.showConfirmDialog(null,"Tem certeza que deseja excluir o usuário?","Confirmar Exclusão",JOptionPane.YES_NO_OPTION);
+        
+        if(opcao == JOptionPane.YES_OPTION)
+        {
+            
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
@@ -340,23 +390,20 @@ public class DlgUsuario extends javax.swing.JDialog {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnGravar;
     private javax.swing.JButton btnNovo;
-    private javax.swing.JButton btnProcurar;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox cbxPerfil;
     private javax.swing.JFormattedTextField ftxCpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPasswordField pwfConfirmarSenha;
     private javax.swing.JPasswordField pwfSenha;
-    private javax.swing.JTextArea txaObservacao;
     private javax.swing.JTextField txfLogin;
     private javax.swing.JTextField txfNome;
     // End of variables declaration//GEN-END:variables
