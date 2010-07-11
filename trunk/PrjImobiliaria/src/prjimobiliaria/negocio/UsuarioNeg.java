@@ -51,4 +51,13 @@ public class UsuarioNeg {
        return usuarioDao.obterUsuarioPorPerfil(tpPerfil);
    }
 
+   public boolean ehSenhaValida(String dsSenha) throws Exception {
+
+       if(dsSenha.length() >= 5) {
+          return true;
+       }
+         
+       throw new Exception("A senha deve ter no mínimo 5 caracteres!");
+   }
+
 }
