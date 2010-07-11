@@ -33,7 +33,6 @@ public class Pessoa {
     private String dsEmail;
     private String dsObservacao;
 
-
     public Pessoa() {}
 
     public Pessoa(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, 
