@@ -40,7 +40,7 @@ public class PessoaDao {
             ps.setString(2, pessoa.getCdRG());
             ps.setString(3, pessoa.getNmPessoa());
             ps.setInt(4, pessoa.getTpSexo());
-            ps.setDate(5, pessoa.getDtNascimento());
+            ps.setString(5, pessoa.getDtNascimento());
             ps.setString(6, pessoa.getDsNaturalidade());
             ps.setString(7, pessoa.getDsNacionalidade());
             ps.setInt(8, pessoa.getTpEstadoCivil());
@@ -125,7 +125,7 @@ public class PessoaDao {
             ps.setString(2, pessoa.getCdRG());
             ps.setString(3, pessoa.getNmPessoa());
             ps.setInt(4, pessoa.getTpSexo());
-            ps.setDate(5, pessoa.getDtNascimento());
+            ps.setString(5, pessoa.getDtNascimento());
             ps.setString(6, pessoa.getDsNaturalidade());
             ps.setString(7, pessoa.getDsNacionalidade());
             ps.setInt(8, pessoa.getTpEstadoCivil());
@@ -273,7 +273,7 @@ public class PessoaDao {
                 pessoa.setCdRG(rs.getString("cd_rg"));
                 pessoa.setNmPessoa(rs.getString("nm_pessoa"));
                 pessoa.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                pessoa.setDtNascimento(rs.getDate("dt_nascimento"));
+                pessoa.setDtNascimento(rs.getString("dt_nascimento"));
                 pessoa.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 pessoa.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 pessoa.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
@@ -343,7 +343,7 @@ public class PessoaDao {
                 pessoa.setCdRG(rs.getString("cd_rg"));
                 pessoa.setNmPessoa(rs.getString("nm_pessoa"));
                 pessoa.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                pessoa.setDtNascimento(rs.getDate("dt_nascimento"));
+                pessoa.setDtNascimento(rs.getString("dt_nascimento"));
                 pessoa.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 pessoa.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 pessoa.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
@@ -410,7 +410,7 @@ public class PessoaDao {
                 pessoa.setCdRG(rs.getString("cd_rg"));
                 pessoa.setNmPessoa(rs.getString("nm_pessoa"));
                 pessoa.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                pessoa.setDtNascimento(rs.getDate("dt_nascimento"));
+                pessoa.setDtNascimento(rs.getString("dt_nascimento"));
                 pessoa.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 pessoa.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 pessoa.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
