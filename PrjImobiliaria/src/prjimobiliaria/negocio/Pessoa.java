@@ -72,9 +72,7 @@ public class Pessoa {
     /**
      * @param idPessoa the idPessoa to set
      */
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
-    }
+    
 
     /**
      * @return the cdCPF
