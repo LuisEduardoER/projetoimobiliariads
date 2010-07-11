@@ -24,6 +24,11 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
     public FrmPrincipalApr() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+
+        DlgLogin dlgLogin = new DlgLogin(this,false);
+        dlgLogin.setModal(true);
+        dlgLogin.setVisible(true);
+        dlgLogin = null;
     }
 
     /** This method is called from within the constructor to
