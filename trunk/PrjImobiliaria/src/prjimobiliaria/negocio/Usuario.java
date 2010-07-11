@@ -20,7 +20,7 @@ public class Usuario extends Pessoa {
     public Usuario () {}
     
 
-    public Usuario(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, Date dtNascimento, String dsNaturalidade, 
+    public Usuario(int idPessoa, String cdCPF, String cdRG, String nmPessoa, char tpSexo, String dtNascimento, String dsNaturalidade,
                    String dsNacionalidade, char tpEstadoCivil, String nmProfissao, String dsEndereco, String noEndereco, String dsComplemento,
                    String nmBairro, String cdCEP, String nmCidade, String sgEstado, String dsEmail, String dsObservacao, char tpPerfil,
                    String dsLogin, String dsSenha) {
