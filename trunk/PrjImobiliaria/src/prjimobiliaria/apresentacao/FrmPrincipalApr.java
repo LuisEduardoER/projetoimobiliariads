@@ -42,9 +42,21 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
@@ -56,6 +68,12 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
 
         jMenu1.setText("Cadastros");
 
+        jMenuItem4.setText("Auxiliar");
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem6.setText("Corretor");
+        jMenu1.add(jMenuItem6);
+
         jMenuItem1.setText("Usuário");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +82,15 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem5.setText("Cliente(Comprador ou Proprietário)");
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem7.setText("Locatário");
+        jMenu1.add(jMenuItem7);
+
+        jMenuItem8.setText("Fiador");
+        jMenu1.add(jMenuItem8);
+
         jMenuItem2.setText("Casa");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +98,12 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem9.setText("Apartamento");
+        jMenu1.add(jMenuItem9);
+
+        jMenuItem10.setText("Sala");
+        jMenu1.add(jMenuItem10);
 
         jMenuItem3.setText("Terreno");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +114,22 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Serviços");
+
+        jMenuItem11.setText("Locação");
+        jMenu2.add(jMenuItem11);
+
+        jMenuItem12.setText("Venda");
+        jMenu2.add(jMenuItem12);
+
+        jMenuItem13.setText("Contrato Avulso");
+        jMenu2.add(jMenuItem13);
+
+        jMenuItem14.setText("Avaliação");
+        jMenu2.add(jMenuItem14);
+
+        jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Relatórios");
         jMenuBar1.add(jMenu3);
@@ -150,12 +199,24 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
 }
