@@ -13,6 +13,18 @@ import java.util.regex.Pattern;
  */
 public class UtilNeg {
 
+
+/*
+    private void setDialogLocation(Frame f) {
+        Rectangle r = f.getBounds();
+        int x = r.x + (r.width - dialog.getSize().width)/2;
+        int y = r.y + (r.height - dialog.getSize().height)/2;
+        dialog.setLocation(x, y);
+    }
+
+*/
+
+
     /**
      * 
      * @param cdCpf

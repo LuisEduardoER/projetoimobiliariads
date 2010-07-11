@@ -11,7 +11,6 @@
 
 package prjimobiliaria.apresentacao;
 
-import javax.swing.JFrame;
 
 /**
  *
@@ -27,6 +26,7 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
 
         DlgLogin dlgLogin = new DlgLogin(this,false);
         dlgLogin.setModal(true);
+        dlgLogin.setLocationRelativeTo(null);
         dlgLogin.setVisible(true);
         dlgLogin = null;
     }
@@ -69,9 +69,19 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         jMenu1.setText("Cadastros");
 
         jMenuItem4.setText("Auxiliar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuItem6.setText("Corretor");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuItem1.setText("Usuário");
@@ -82,13 +92,28 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem5.setText("Cliente(Comprador ou Proprietário)");
+        jMenuItem5.setText("Cliente (Comprador ou Proprietário)");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuItem7.setText("Locatário");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem7);
 
         jMenuItem8.setText("Fiador");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem8);
 
         jMenuItem2.setText("Casa");
@@ -100,9 +125,19 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem9.setText("Apartamento");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem9);
 
         jMenuItem10.setText("Sala");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem10);
 
         jMenuItem3.setText("Terreno");
@@ -118,15 +153,35 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         jMenu2.setText("Serviços");
 
         jMenuItem11.setText("Locação");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuItem12.setText("Venda");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem12);
 
         jMenuItem13.setText("Contrato Avulso");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem13);
 
         jMenuItem14.setText("Avaliação");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem14);
 
         jMenuBar1.add(jMenu2);
@@ -166,6 +221,7 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         DlgCasa dlgCasa = new DlgCasa(this,false);
         dlgCasa.setModal(true);
+        dlgCasa.setLocationRelativeTo(null);
         dlgCasa.setVisible(true);
         dlgCasa = null;// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -174,6 +230,7 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         // TODO add your handling code here:
         DlgUsuario dlgUsuario = new DlgUsuario(this,false);
         dlgUsuario.setModal(true);
+        dlgUsuario.setLocationRelativeTo(null);
         dlgUsuario.setVisible(true);
         dlgUsuario = null;
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -182,9 +239,98 @@ public class FrmPrincipalApr extends javax.swing.JFrame {
         // TODO add your handling code here:
         DlgTerreno dlgTerreno = new DlgTerreno(this,false);
         dlgTerreno.setModal(true);
+        dlgTerreno.setLocationRelativeTo(null);
         dlgTerreno.setVisible(true);
         dlgTerreno = null;
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        DlgAuxiliar dlgAuxiliar = new DlgAuxiliar(this,false);
+        dlgAuxiliar.setModal(true);
+        dlgAuxiliar.setLocationRelativeTo(null);
+        dlgAuxiliar.setVisible(true);
+        dlgAuxiliar = null;
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        DlgCorretor dlgCorretor = new DlgCorretor(this,false);
+        dlgCorretor.setModal(true);
+        dlgCorretor.setLocationRelativeTo(null);
+        dlgCorretor.setVisible(true);
+        dlgCorretor = null;
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        DlgCliente dlgCliente = new DlgCliente(this,false);
+        dlgCliente.setModal(true);
+        dlgCliente.setLocationRelativeTo(null);
+        dlgCliente.setVisible(true);
+        dlgCliente = null;
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        DlgLocatario dlgLocatario = new DlgLocatario(this,false);
+        dlgLocatario.setModal(true);
+        dlgLocatario.setLocationRelativeTo(null);
+        dlgLocatario.setVisible(true);
+        dlgLocatario = null;
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        DlgFiador dlgFiador = new DlgFiador(this,false);
+        dlgFiador.setModal(true);
+        dlgFiador.setLocationRelativeTo(null);
+        dlgFiador.setVisible(true);
+        dlgFiador = null;
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        DlgApartamento dlgApartamento = new DlgApartamento(this,false);
+        dlgApartamento.setModal(true);
+        dlgApartamento.setLocationRelativeTo(null);
+        dlgApartamento.setVisible(true);
+        dlgApartamento = null;
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        DlgSala dlgSala = new DlgSala(this,false);
+        dlgSala.setModal(true);
+        dlgSala.setLocationRelativeTo(null);
+        dlgSala.setVisible(true);
+        dlgSala = null;
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        DlgLocacao dlgLocacao = new DlgLocacao(this,false);
+        dlgLocacao.setModal(true);
+        dlgLocacao.setLocationRelativeTo(null);
+        dlgLocacao.setVisible(true);
+        dlgLocacao = null;
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        DlgVenda dlgVenda = new DlgVenda(this,false);
+        dlgVenda.setModal(true);
+        dlgVenda.setLocationRelativeTo(null);
+        dlgVenda.setVisible(true);
+        dlgVenda = null;
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        DlgContratoAvulso dlgContratoAvulso = new DlgContratoAvulso(this,false);
+        dlgContratoAvulso.setModal(true);
+        dlgContratoAvulso.setLocationRelativeTo(null);
+        dlgContratoAvulso.setVisible(true);
+        dlgContratoAvulso = null;
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        DlgAvaliacao dlgAvaliacao = new DlgAvaliacao(this,false);
+        dlgAvaliacao.setModal(true);
+        dlgAvaliacao.setLocationRelativeTo(null);
+        dlgAvaliacao.setVisible(true);
+        dlgAvaliacao = null;
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
     * @param args the command line arguments
