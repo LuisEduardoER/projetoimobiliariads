@@ -244,7 +244,7 @@ public class UsuarioDao {
                 usuario.setCdRG(rs.getString("cd_rg"));
                 usuario.setNmPessoa(rs.getString("nm_pessoa"));
                 usuario.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                usuario.setDtNascimento(rs.getDate("dt_nascimento"));
+                usuario.setDtNascimento(rs.getString("dt_nascimento"));
                 usuario.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 usuario.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 usuario.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
@@ -348,7 +348,7 @@ public class UsuarioDao {
                 usuario.setCdRG(rs.getString("cd_rg"));
                 usuario.setNmPessoa(rs.getString("nm_pessoa"));
                 usuario.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                usuario.setDtNascimento(rs.getDate("dt_nascimento"));
+                usuario.setDtNascimento(rs.getString("dt_nascimento"));
                 usuario.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 usuario.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 usuario.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
@@ -449,7 +449,7 @@ public class UsuarioDao {
                 usuario.setCdRG(rs.getString("cd_rg"));
                 usuario.setNmPessoa(rs.getString("nm_pessoa"));
                 usuario.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                usuario.setDtNascimento(rs.getDate("dt_nascimento"));
+                usuario.setDtNascimento(rs.getString("dt_nascimento"));
                 usuario.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 usuario.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 usuario.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
@@ -551,7 +551,7 @@ public class UsuarioDao {
                 usuario.setCdRG(rs.getString("cd_rg"));
                 usuario.setNmPessoa(rs.getString("nm_pessoa"));
                 usuario.setTpSexo(rs.getString("tp_sexo").charAt(0));
-                usuario.setDtNascimento(rs.getDate("dt_nascimento"));
+                usuario.setDtNascimento(rs.getString("dt_nascimento"));
                 usuario.setDsNaturalidade(rs.getString("ds_naturalidade"));
                 usuario.setDsNacionalidade(rs.getString("ds_nacionalidade"));
                 usuario.setTpEstadoCivil(rs.getString("tp_estado_civil").charAt(0));
